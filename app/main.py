@@ -23,7 +23,7 @@ def get_db():
     finally:
         db.close()
 
-# 🖼 Upload endpoint
+#  Upload endpoint
 @app.post("/upload", response_model=schemas.ImageOut)
 def upload_image(
     uploader: str = Form(...),
@@ -60,12 +60,12 @@ def upload_image(
         url=f"{base_url}/files/{image.filename}"
     )
 
-# 🏠 Welcome route
+#  Welcome route
 @app.get("/")
 def read_root():
     return {"message": "Welcome to RealReview!"}
 
-# 🔍 Get all images
+#  Get all images
 @app.get("/images", response_model=List[schemas.ImageOut])
 def get_all_images(db: Session = Depends(get_db)):
     images = db.query(models.Image).all()
