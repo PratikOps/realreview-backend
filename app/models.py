@@ -6,7 +6,7 @@ class Image(Base):
     __tablename__ = "images"
 
     id = Column(Integer, primary_key=True, index=True)
-    filename = Column(String, unique=True, index=True)
+    filename = Column(String, unique=True)
     uploader = Column(String)
     location = Column(String)
     timestamp = Column(DateTime, default=datetime.utcnow)
